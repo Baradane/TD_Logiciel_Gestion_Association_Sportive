@@ -35,7 +35,7 @@ def main():
     root = RootFrame(person_controller, sport_controller)
     root.master.title("bds subscription app")
     root.show_menu()
-
+    a=1
     # start
     root.mainloop()
 
