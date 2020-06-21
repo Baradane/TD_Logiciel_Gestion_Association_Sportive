@@ -4,9 +4,7 @@ from model.dao.dao_error_handler import dao_error_handler
 
 
 class MemberDAO(PersonDAO):
-    """
-    Member Mapping DAO
-    """
+
 
     def __init__(self, database_session):
         super().__init__(database_session, person_type=Member)
@@ -25,10 +23,9 @@ class MemberDAO(PersonDAO):
 
     @dao_error_handler
     def update(self, member: Member, data: dict):
-        # Update Person data
+
         super().update(member, data)
 
-        # Update Member data
         if 'medical_certificate' in data:
             member.medical_certificate = data['medical_certificate']
 

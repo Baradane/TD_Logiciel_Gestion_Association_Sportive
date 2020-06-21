@@ -1,8 +1,6 @@
 
 class DAO:
-    """
-    DAO Interface Object
-    """
+
 
     def __init__(self, database_session):
         self._database_session = database_session

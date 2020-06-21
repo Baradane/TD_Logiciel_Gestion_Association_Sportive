@@ -4,9 +4,7 @@ from model.dao.dao_error_handler import dao_error_handler
 
 
 class CoachDAO(PersonDAO):
-    """
-    Coach Mapping DAO
-    """
+
 
     def __init__(self, database_session):
         super().__init__(database_session, person_type=Coach)
@@ -23,7 +21,7 @@ class CoachDAO(PersonDAO):
 
     @dao_error_handler
     def update(self, coach: Coach, data: dict):
-        # Update Person data
+
         super().update(coach, data)
         if 'contract' in data:
             coach.contract = data['contract']

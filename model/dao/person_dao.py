@@ -4,9 +4,7 @@ from model.dao.dao_error_handler import dao_error_handler
 
 
 class PersonDAO(DAO):
-    """
-    Person Mapping DAO
-    """
+
 
     def __init__(self, database_session, person_type=Person):
         super().__init__(database_session)

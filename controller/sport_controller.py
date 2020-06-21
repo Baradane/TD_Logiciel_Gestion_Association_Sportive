@@ -7,9 +7,7 @@ from exceptions import Error, InvalidData
 
 
 class SportController:
-    """
-    Sport actions
-    """
+
 
     def __init__(self, database_engine):
         self._database_engine = database_engine
@@ -33,13 +31,11 @@ class SportController:
         self._check_sport_data(data)
         try:
             with self._database_engine.new_session() as session:
-                # Save member in database
                 dao = SportDAO(session)
                 sport = dao.create(data)
                 sport_data = sport.to_dict()
                 return sport_data
         except Error as e:
-            # log error
             logging.error("An Error occured (%s)" % str(e))
             raise e
 
@@ -60,7 +56,6 @@ class SportController:
 
     def search_sport(self, name):
         logging.info("Search sport %s" % name)
-        # Query database
         with self._database_engine.new_session() as session:
             dao = SportDAO(session)
             sport = dao.get_by_name(name)

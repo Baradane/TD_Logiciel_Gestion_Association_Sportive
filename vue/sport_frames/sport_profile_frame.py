@@ -45,7 +45,6 @@ class SportProfileFrame(SportFormularFrame):
         entry.config(state=DISABLED)
 
     def refresh(self):
-        # Restore window with member value and cancel edition
         self.cancel_button.grid_forget()
         self.update_button.grid_forget()
         self._refresh_entry(self.name_entry, self._sport['name'])
@@ -65,7 +64,6 @@ class SportProfileFrame(SportFormularFrame):
     def remove(self):
         sport_id = self._sport['id']
         self._sport_controller.delete_sport(sport_id)
-        # show confirmation
         messagebox.showinfo("Success",
                             "Sport %s deleted !" % self._sport['name'])
         self.back()

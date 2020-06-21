@@ -11,10 +11,7 @@ from vue.sport_frames.sport_profile_frame import SportProfileFrame
 
 
 class RootFrame(Frame):
-    """
-    Member actions
-    help: http://www.xavierdupre.fr/app/teachpyx/helpsphinx/c_gui/tkinter.html
-    """
+
 
     def __init__(self, person_controller, sport_controller, master=None):
         super().__init__(master)
@@ -25,7 +22,7 @@ class RootFrame(Frame):
 
     def new_member(self):
         self.hide_frames()
-        # Show formular subscribe
+
         subscribe_frame = NewMemberFrame(self._person_controller, self)
         subscribe_frame.show()
         self._frames.append(subscribe_frame)
@@ -44,7 +41,7 @@ class RootFrame(Frame):
 
     def show_members(self):
 
-        # show members
+
         self.hide_menu()
         list_frame = ListMembersFrame(self._person_controller, self, person_type='member')
         self._frames.append(list_frame)
@@ -52,7 +49,6 @@ class RootFrame(Frame):
         
     def show_coaches(self):
 
-        # show members
         self.hide_menu()
         list_frame = ListMembersFrame(self._person_controller, self, person_type='coach')
         self._frames.append(list_frame)

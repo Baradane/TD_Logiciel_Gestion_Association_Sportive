@@ -6,10 +6,7 @@ from model.mapping import Base
 
 
 class DatabaseEngine:
-    """
-    Database Engine
-    Handle Database connections and sessions
-    """
+
 
     def __init__(self, url='sqlite:///:memory:', verbose=False):
         self._engine = create_engine(url, echo=verbose)

@@ -19,7 +19,6 @@ class ListSportsFrame(BaseFrame):
         self.title = Label(self, text="List sports:")
         self.title.grid(row=0, column=0)
 
-        # grille
         yDefil = Scrollbar(self, orient='vertical')
         self.listbox = Listbox(self, yscrollcommand=yDefil.set, width=30, selectmode='single')
         yDefil['command'] = self.listbox.yview
@@ -27,7 +26,6 @@ class ListSportsFrame(BaseFrame):
         yDefil.grid(row=1, column=2, sticky='ns')
         self.listbox.grid(row=1, column=0, columnspan=2, sticky='nsew')
 
-        # Return bouton
         self.new_sport_button = Button(self, text="New Sport", command=self._root_frame.new_sport)
         self.show_sport_button = Button(self, text="Show profile", command=self.show_sport)
         self.menu = Button(self, text="Return", fg="red",

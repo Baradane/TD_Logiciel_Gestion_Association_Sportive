@@ -23,7 +23,6 @@ class Person(Base):
     sports = relationship("SportAssociation", back_populates="person")
 
     __table_args__ = (UniqueConstraint('firstname', 'lastname'),)
-    # https://docs.sqlalchemy.org/en/13/orm/inheritance.html
     __mapper_args__ = {
         'polymorphic_identity': 'person',
         'polymorphic_on': person_type

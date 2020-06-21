@@ -6,10 +6,8 @@ from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 
 
 def dao_error_handler(func):
-    """
-    Decorator pattern
-    https://www.python.org/dev/peps/pep-0318/
-    """
+    
+
     def handler(*args, **kwargs):
         try:
             return func(*args, **kwargs)

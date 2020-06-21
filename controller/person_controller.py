@@ -8,9 +8,7 @@ from exceptions import Error, InvalidData
 
 
 class PersonController:
-    """
-    Member actions
-    """
+
 
     def __init__(self, database_engine):
         self._database_engine = database_engine
@@ -39,13 +37,11 @@ class PersonController:
         self._check_person_data(data)
         try:
             with self._database_engine.new_session() as session:
-                # Save member in database
                 dao = PersonDAOFabric(session).get_dao(type=person_type)
                 member = dao.create(data)
                 member_data = member.to_dict()
                 return member_data
         except Error as e:
-            # log error
             logging.error("An Error occured (%s)" % str(e))
             raise e
 
@@ -103,7 +99,6 @@ class PersonController:
 
     def search_person(self, firstname, lastname, person_type=None):
         logging.info("Search person %s %s" % (firstname, lastname))
-        # Query database
         with self._database_engine.new_session() as session:
             dao = PersonDAOFabric(session).get_dao(type=person_type)
             member = dao.get_by_name(firstname, lastname)
